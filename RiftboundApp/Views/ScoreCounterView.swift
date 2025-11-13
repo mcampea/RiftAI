@@ -56,8 +56,11 @@ struct ScoreCounterView: View {
     }
 
     func loadGameSessions() async {
-        guard let userRecord = appState.currentUserRecord else { return }
-        let userRef = CKRecord.Reference(recordID: userRecord.recordID, action: .none)
+        guard let userID = appState.currentUser?.id else { return }
+        let userRef = CKRecord.Reference(
+            recordID: CKRecord.ID(recordName: userID),
+            action: .none
+        )
         await viewModel.fetchGameSessions(for: userRef)
     }
 }
