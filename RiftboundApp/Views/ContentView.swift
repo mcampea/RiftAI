@@ -194,11 +194,17 @@ struct MainTabView: View {
                 }
                 .tag(3)
 
+            ScoreCounterView()
+                .tabItem {
+                    Label("Score", systemImage: "number")
+                }
+                .tag(4)
+
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-                .tag(4)
+                .tag(5)
         }
     }
 }
